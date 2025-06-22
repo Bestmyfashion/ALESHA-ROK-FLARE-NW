@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ALESHA ROK FLARE - Fashion Premium Wanita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background-color: #fff; color: #333; line-height: 1.6; } 
+    header { text-align: center; padding: 50px 20px 20px; background: linear-gradient(to right, #f9f9f9, #fff); }
+    .tagline { font-size: 1.8rem; font-weight: 600; color: #e67e22; margin-bottom: 20px; }
+    .hero img { max-width: 100%; height: auto; border-radius: 10px; }
+    .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+    section { padding: 40px 0; }
+    h2 { font-size: 1.5rem; margin-bottom: 20px; color: #2c3e50; }
+    p { font-size: 1rem; margin-bottom: 15px; }
+
+    .problem-solution ul li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+    .problem-solution ul li::before {
+      content: "✔"; color: #e67e22; position: absolute; left: 0; top: 0;
+    }
+
+    .features ul li { display: flex; align-items: center; margin-bottom: 10px; }
+    .features ul li span { width: 30px; height: 30px; background: #e67e22; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 10px; }
+
+    .testimonials blockquote {
+      border-left: 4px solid #e67e22; padding-left: 15px; margin-bottom: 20px; font-style: italic;
+    }
+
+    .cta-button {
+      display: inline-block; background: #e67e22; color: white; padding: 15px 30px; border-radius: 30px; font-weight: bold; text-decoration: none; font-size: 1.1rem; margin-top: 20px;
+    }
+
+    .counter, .countdown {
+      text-align: center; margin: 30px 0;
+    }
+
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%; height: auto; cursor: pointer; border-radius: 10px;
+    }
+
+    .modal {
+      display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: 5% auto; display: block; max-width: 90%; border-radius: 10px;
+    }
+
+    .close-modal {
+      position: absolute; top: 20px; right: 35px; color: white; font-size: 30px; cursor: pointer;
+    }
+
+    .whatsapp-btn {
+      position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; z-index: 9999;
+    }
+
+    .price-banner {
+      background: #e67e22; color: white; text-align: center; padding: 15px; border-radius: 10px; margin-top: 20px;
+    }
+
+    .price-banner del {
+      opacity: 0.7; margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .tagline { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="tagline">ALESHA ROK FLARE - Elegan, Nyaman, Modis</div>
+  <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-maamf430wgxw33.webp"  alt="Aleha Rok Flare">
+</header>
+
+<div class="container">
+  <section class="problem-solution">
+    <h2>Permasalahan & Solusi</h2>
+    <ul>
+      <li>Rok yang kurang nyaman dipakai seharian? Tidak lagi!</li>
+      <li>Bosan dengan model rok yang itu-itu saja? Kini ada ALESHA ROK FLARE.</li>
+      <li>Tampil anggun tanpa ribet? Bisa! Dengan desain flare modern dan kain premium.</li>
+    </ul>
+  </section>
+
+  <section class="features">
+    <h2>Fitur Utama</h2>
+    <ul>
+      <li><span>✓</span> Material berkualitas tinggi, lembut dan tidak panas</li>
+      <li><span>✓</span> Cutting flare yang membuat tampilan lebih ramping</li>
+      <li><span>✓</span> Cocok untuk acara formal maupun casual</li>
+      <li><span>✓</span> Berbagai pilihan warna elegan</li>
+    </ul>
+  </section>
+
+  <section class="gallery">
+    <h2>Galeri Produk</h2>
+    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-mabq2p17gpz494.webp"  onclick="openModal(this.src)">
+    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkb-maamf430xvic7e.webp"  onclick="openModal(this.src)">
+    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasm-m0on4itimg5310.webp"  onclick="openModal(this.src)">
+  </section>
+
+  <section class="counter">
+    <h2>Pengunjung Hari Ini: <span id="viewers">1,234</span></h2>
+    <h2>Stok Tersisa: <span id="stock">57</span> pcs</h2>
+  </section>
+
+  <section class="countdown">
+    <h2>Promo Berakhir Dalam:</h2>
+    <h3 id="timer" style="color:#e67e22;">Loading...</h3>
+  </section>
+
+  <section class="testimonials">
+    <h2>Apa Kata Customer?</h2>
+    <blockquote>"Baru beli seminggu lalu, sudah jatuh cinta! Nyaman banget dipakai kerja!" - Anna, Jakarta</blockquote>
+    <blockquote>"Roknya pas buat kondangan, banyak yang nanya beli dimana 😍" - Lina, Bandung</blockquote>
+    <blockquote>"Material adem dan cuttingannya benar-benar memuaskan!" - Maya, Surabaya</blockquote>
+    <blockquote>"Cepat sampainya dan packing rapi. Recommend banget!" - Dinda, Medan</blockquote>
+  </section>
+
+  <section class="price-banner">
+    <p><del>IDR 277.500</del> <strong>IDR 185.000</strong> (Diskon 50%)</p>
+    <a href="https://alya.orderonline.id/alesha-rok-flare"  class="cta-button">BELI SEKARANG JUGA FREE ONGKIR</a>
+  </section>
+</div>
+
+<a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Fashion%20anti-theft%20handbag" target="_blank" class="whatsapp-btn">💬 Chat via WhatsApp</a>
+
+<!-- Modal -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+  // Counter viewers
+  let viewers = Math.floor(Math.random() * 5000) + 1000;
+  document.getElementById("viewers").innerText = viewers.toLocaleString();
+
+  // Stock counter
+  let stock = Math.floor(Math.random() * 100) + 20;
+  document.getElementById("stock").innerText = stock;
+
+  // Countdown Timer
+  const countdownDate = new Date();
+  countdownDate.setDate(countdownDate.getDate() + 3); // 3 hari dari sekarang
+  const timer = document.getElementById("timer");
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+
+  function openModal(src) {
+    document.getElementById("imageModal").style.display = "block";
+    document.getElementById("modalImg").src = src;
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
